@@ -1,0 +1,271 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+  background-color: #fff0f0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  /* margin-top: 7rem; */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/*! container part */
+
+.container {
+  /* border: 1px solid red; */
+  /* width: 100vw;
+  height: 100vh; */
+  /* min-height: 380px;  */
+  max-width: 450px;
+  margin: 0 auto;
+  
+}
+
+.card {
+  /* border: 1px solid red; */
+  width: 400px;
+  margin: 0 auto;
+  padding: 1.5rem 3rem;
+  background-color: #ffebeb;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 3px #bbf0b7;
+}
+
+p {
+  text-align: center;
+  margin: 0.5rem 0 2rem 0;
+}
+
+.card p {
+  background-color: #bbf0b7;
+  padding: 1rem;
+  height: 3.5rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  color: #5f5f5f;
+  font-size: 1.5rem;
+  text-align: left;
+  position: relative;
+}
+
+.generate-box {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  background: transparent;
+  height: 4.5rem;
+  margin-bottom: 1rem;
+}
+
+#copy {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  font-size: 2rem;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.fa-copy {
+  /* position: absolute; */
+  /* top: 0.9rem; */
+  /* right: 1.1rem; */
+  /* font-size: 1.5rem; */
+  background: transparent;
+  color: #656ffb;
+  /* cursor: pointer; */
+}
+
+.boxCon {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: transparent;
+}
+
+.boxLength input {
+  box-shadow: 2px 0px 4px#bbf0b7, -2px -0px 4px#bbf0b7, 0px -2px 4px#bbf0b7,
+    -2px 0px 4px#bbf0b7;
+}
+
+.boxitem {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  font-size: 14px;
+  color: #494141;
+  background-color: transparent;
+}
+
+.boxcircle {
+  font-size: 1.1rem;
+  color: #222;
+  display: block;
+  padding-left: 3rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.boxitem input {
+  position: absolute;
+  height: 0;
+  width: 0;
+}
+
+.check {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  border: 2px solid #f45252;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+}
+
+.boxitem:hover input ~ .check {
+  box-shadow: 0 0 5px#bbf0b7;
+  background-color: rgb(240, 223, 223);
+}
+
+.boxitem input:checked ~ .check {
+  background-color: #f45252;
+  box-shadow: 3px 0px 7px#bbf0b7, -3px -0px 7px#bbf0b7, 0px -3px 7px#bbf0b7,
+    -3px 0px 7px#bbf0b7;
+}
+
+.check::after {
+  content: " ";
+  position: absolute;
+  width: 5px;
+  height: 12px;
+  border: 1px solid#faf5f5;
+  border-width: 0 3px 3px 0;
+  left: 7px;
+  top: 2px;
+  transform: rotate(45deg);
+}
+
+/* .boxitem input:focus ~ .check{
+    box-shadow: 0 0 0 4px rgba(255 0 0 / 0.3);
+} */
+
+.card #generate {
+  margin: 2rem 0 0 2.5rem;
+  height: 45px;
+  width: 200px;
+  border: none;
+  outline: none;
+  background: #fd8787;
+  color: #f5f5ff;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 0.5rem;
+  position: relative;
+  z-index: 11;
+  transition: all 0.2s ease-in;
+}
+
+.card #generate:hover{
+    border: 1px solid #fd8787;
+    background: transparent;
+    color: #fd8787;
+}
+
+.boxLength {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background: transparent;
+  gap: 0.5rem;
+}
+
+input[type="number"] {
+  width: 20%;
+  font-size: 01rem;
+  padding: 0.3rem;
+  outline: none;
+  border: none;
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* extra bonus */
+.alert {
+  background-color: #dbdeff;
+  padding: 1rem 2rem;
+  min-width: 420px;
+  position: absolute;
+  right: 0;
+  top: 1rem;
+  border-radius: 0.3rem;
+  border-left: 8px solid #3d52f0;
+  overflow-x: hidden;
+}
+
+.alert .fa-circle-check {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7a83ff;
+  font-size: 1.8rem;
+  background: transparent;
+}
+
+.alert .msg {
+  padding: 0rem 1.5rem;
+  overflow-x: hidden;
+  font-size: 0.9rem;
+  color: #7a83ff;
+  background: transparent;
+}
+
+.show {
+  animation: show_slide 1s ease forwards;
+}
+
+@keyframes show_slide {
+  0% {
+    transform: translateX(100%);
+  }
+  40% {
+    transform: translateX(-10%);
+  }
+  80% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-10%);
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.fa-bolt{
+    background: transparent;
+    margin-right: 0.5rem;
+}
+
+
+
+
+
