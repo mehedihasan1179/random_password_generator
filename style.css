@@ -58,6 +58,7 @@ p {
 }
 
 .generate-box {
+  /* border: 1px solid red; */
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -189,6 +190,7 @@ p {
   align-items: center;
   background: transparent;
   gap: 0.5rem;
+
 }
 
 input[type="number"] {
@@ -265,6 +267,73 @@ input[type="number"]::-webkit-inner-spin-button {
     margin-right: 0.5rem;
 }
 
+
+@media (max-width: 435px) {
+  body{
+    width: auto;
+    font-size: 16px;
+  }
+  .container {
+    margin-top: 1rem;
+    /* border: 1px solid red; */
+    /* width: 100vw;
+    height: 100vh; */
+    /* min-height: 380px;  */
+    max-width: 360px;
+    /* margin: 0 auto; */
+    
+  }
+
+  /* .generate-box {
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid red;
+    height: 4.5rem;
+    margin-bottom: 1rem;
+  }
+   */
+  .card p {
+    
+    font-size: 0.9rem;
+    line-height: 25px;
+    
+  }
+
+  .alert {
+    min-width: 300px;
+    
+  }
+
+  .card #generate {
+    margin: 2rem 0;
+    
+  }
+
+  .boxcircle {
+    padding-left: 2rem;
+    font-size: 12px;
+    line-height: 24px;
+  }
+
+  .card {
+    width: 320px;
+  }
+
+  h1{
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  /* .boxLength input {
+    width: 100%;
+    border: 1px solid red;
+  } */
+
+  .boxLength label{
+    font-size: 14px;
+    text-align: left;
+  }
+}
 
 
 
