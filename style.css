@@ -5,8 +5,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
-  background-color: #fff0f0;
+  background-color: #f1f1f1;
 }
+
+/* #fff0f0 */
 
 body {
   width: 100%;
@@ -18,41 +20,181 @@ body {
   flex-direction: column;
 }
 
-/*! container part */
-
-.container {
-  /* border: 1px solid red; */
-  /* width: 100vw;
-  height: 100vh; */
-  /* min-height: 380px;  */
-  max-width: 450px;
-  margin: 0 auto;
+.lengthMove {
+  margin-inline-start: -2rem;
+  margin-block-end: 1rem;
   
 }
 
+/*! container part */
+
+.container {
+  border: 1px solid rgb(0, 0, 0);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.container .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline-end: 5px;
+  position: relative;
+  /* background-color: black; */
+  padding: 10px 15px;
+  color: white;
+}
+
+.container .head .fa-ellipsis-vertical {
+  font-size: 1.25rem;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  line-height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .head .fa-ellipsis-vertical:hover {
+  background: #ccc;
+}
+
+#password {
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  word-break: break-all;
+}
+
+#password span.char-uppercase {
+  color: #FF6B6B;
+  background: transparent;
+}
+
+#password span.char-lowercase {
+  color: #4ECDC4;
+  background: transparent;
+}
+
+#password span.char-number {
+  color: #FFD166;
+  background: transparent;
+}
+
+#password span.char-symbol {
+  color: #6B48FF;
+  background: transparent;
+}
+
+
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 25px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  width: 150px;
+  z-index: 1000;
+  margin: 5px 5px 0 0;
+}
+
+.dropdown-menu.active {
+  display: flex;
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #333;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: #f0f0f0;
+}
+
+/* .dropdown-item.active {
+  background: #828385;
+  color: #fff;
+} */
+
+.themes-submenu {
+  position: absolute;
+  top: 0;
+  margin: 39px 0;
+  right: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  width: 150px;
+  z-index: 1000;
+}
+
+.themes-submenu.active {
+  display: flex;
+}
+
+.submenu-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #333;
+  transition: background 0.2s ease;
+}
+
+.submenu-item:hover {
+  background: #f0f0f0;
+}
+
+.submenu-item.active {
+  background: #007bff;
+  color: #fff;
+}
+
+.container .head .heading {
+  text-align: left;
+  font-size: 2.5rem;
+  padding: 1rem 0.5rem 0.5rem;
+  color: #504b4b;
+}
+
+.container .head .text {
+  text-align: left;
+  font-size: 0.9rem;
+  padding: 0 0.5rem 0.5rem;
+  color: #494141;
+}
+
 .card {
-  /* border: 1px solid red; */
   width: 400px;
   margin: 0 auto;
-  padding: 1.5rem 3rem;
-  background-color: #ffebeb;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 3px #bbf0b7;
+  padding: 1.5rem 1rem;
+  background-color: #ebebeb;
 }
 
 p {
   text-align: center;
-  margin: 0.5rem 0 2rem 0;
+  /* margin: 0.5rem 0 2rem 0; */
 }
 
-.card p {
+.card #password {
   background-color: #bbf0b7;
-  padding: 1rem;
+  padding: 1.3rem 0.8rem;
   height: 3.5rem;
   width: 100%;
   border-radius: 0.5rem;
   color: #5f5f5f;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   text-align: left;
   position: relative;
 }
@@ -64,8 +206,6 @@ p {
   justify-content: space-between;
   text-align: center;
   background: transparent;
-  height: 4.5rem;
-  margin-bottom: 1rem;
 }
 
 #copy {
@@ -80,43 +220,91 @@ p {
 }
 
 .fa-copy {
-  /* position: absolute; */
-  /* top: 0.9rem; */
-  /* right: 1.1rem; */
-  /* font-size: 1.5rem; */
+  position: absolute;
+  top: 0rem;
+  right: 0;
+  font-size: 1.5rem;
   background: transparent;
   color: #656ffb;
-  /* cursor: pointer; */
+  cursor: pointer;
+}
+
+/* Updated save button styles */
+.save-button-container {
+  text-align: right;
+  margin: 10px 0;
+  background-color: transparent;
+}
+
+.save-button {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  background: #656ffb;
+  color: #fff;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.save-button:hover {
+  background: #5059e0;
+}
+
+.fa-floppy-disk {
+  color: wheat;
+  background: transparent;
+  margin-inline-end: 5px;
+  font-size: 18px;
+}
+
+@media (max-width: 435px) {
+  .save-button-container {
+    text-align: center;
+  }
+
+  .save-button {
+    width: 100%;
+    margin-top: 10px;
+  }
 }
 
 .boxCon {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
+  padding: 0rem 0 0 1.5rem;
   background-color: transparent;
 }
 
-.boxLength input {
+/* .boxLength input {
   box-shadow: 2px 0px 4px#bbf0b7, -2px -0px 4px#bbf0b7, 0px -2px 4px#bbf0b7,
     -2px 0px 4px#bbf0b7;
-}
+} */
 
 .boxitem {
   position: relative;
   display: flex;
+  justify-content: space-between;
   gap: 1rem;
   font-size: 14px;
   color: #494141;
   background-color: transparent;
 }
-
 .boxcircle {
   font-size: 1.1rem;
   color: #222;
   display: block;
-  padding-left: 3rem;
+  padding-left: 2.2rem;
   background-color: transparent;
   cursor: pointer;
+  z-index: 1;
+}
+
+.customize-btn {
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto; /* Allow clicks on the ⚙️ icon */
 }
 
 .boxitem input {
@@ -133,6 +321,7 @@ p {
   border-radius: 50%;
   top: 0;
   left: 0;
+  z-index: 0;
 }
 
 .boxitem:hover input ~ .check {
@@ -158,12 +347,12 @@ p {
   transform: rotate(45deg);
 }
 
-/* .boxitem input:focus ~ .check{
-    box-shadow: 0 0 0 4px rgba(255 0 0 / 0.3);
-} */
+.boxitem input:focus ~ .check {
+  box-shadow: 0 0 0 4px rgba(255 0 0 / 0.3);
+}
 
 .card #generate {
-  margin: 2rem 0 0 2.5rem;
+  margin: 2rem 0 0 4.5rem;
   height: 45px;
   width: 200px;
   border: none;
@@ -178,19 +367,23 @@ p {
   transition: all 0.2s ease-in;
 }
 
-.card #generate:hover{
-    border: 1px solid #fd8787;
-    background: transparent;
-    color: #fd8787;
+.card #generate:hover {
+  border: 1px solid #fd8787;
+  background: transparent;
+  color: #fd8787;
 }
 
 .boxLength {
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   background: transparent;
   gap: 0.5rem;
+}
 
+.boxLength .left {
+  display: flex;
+  gap: 10px;
 }
 
 input[type="number"] {
@@ -243,6 +436,114 @@ input[type="number"]::-webkit-inner-spin-button {
   animation: show_slide 1s ease forwards;
 }
 
+/* .strength-meter {
+  margin-top: 10px;
+  background-color: transparent;
+} */
+
+.meter {
+  width: 100%;
+  height: 10px;
+  background: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+/* #strength-bar {
+  height: 100%;
+  width: 0%;
+  background: red;
+  transition: width 0.3s, background 0.3s;
+} */
+
+/* #strength-text {
+  font-size: 14px;
+  margin-left: 5px;
+} */
+
+.strength-meter {
+  width: 100%;
+  height: 8px;
+  background-color: #eee;
+  border-radius: 5px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+#strengthBar {
+  height: 100%;
+  width: 0;
+  transition: width 0.3s ease-in-out;
+}
+#strengthText {
+  margin-top: 5px;
+  font-size: 14px;
+  margin-block-end: 1rem;
+  font-weight: bold;
+  text-align: center;
+  background-color: transparent;
+}
+
+/* modal dialog design */
+/* 🔹 Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+  gap: 6px;
+  margin: 15px 0;
+}
+
+.char-grid div {
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.char-grid div.active {
+  background: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-actions button {
+  padding: 6px 12px;
+  margin: 5px;
+  cursor: pointer;
+}
+.right-btns {
+  display: flex;
+  gap: 10px;
+}
+
 @keyframes show_slide {
   0% {
     transform: translateX(100%);
@@ -262,14 +563,302 @@ input[type="number"]::-webkit-inner-spin-button {
   display: none;
 }
 
-.fa-bolt{
-    background: transparent;
-    margin-right: 0.5rem;
+.fa-bolt {
+  background: transparent;
+  margin-right: 0.5rem;
+}
+
+.saved-passwords {
+  display: none;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  width: 400px;
+}
+
+.saved-passwords h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.password-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.password-text {
+  flex-grow: 1;
+  margin-right: 15px;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.password-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.password-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555;
+}
+
+.password-actions button:hover {
+  color: #333;
+}
+
+.hidden-password {
+  filter: blur(5px);
+  user-select: none;
+}
+
+.back-button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.fa-arrow-left {
+  color: wheat; 
+  background: transparent; 
+  margin-inline-end: 5px; 
+  font-size: 18px;
+}
+
+.password-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #ac2525;
+  cursor: pointer;
+}
+
+.password-item:last-child {
+  border-bottom: none;
+}
+
+.password-content {
+  flex: 1;
+}
+
+.password-text {
+  display: block;
+  font-family: monospace;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.password-time {
+  font-size: 12px;
+  color: #888;
+}
+
+.password-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.password-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+}
+
+.password-actions button:hover {
+  color: #333;
+}
+
+.save-password-list {
+  margin-block-start: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  scrollbar-width: thin;
+  /* border: 1px solid red; */
+}
+
+.save-password-list:nth-child(even) {
+  background-color: #c05858;
 }
 
 
+
+
+
+/* paslist list styling */
+/* Password Context Menu */
+.password-context-menu {
+  position: fixed;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px 0;
+  z-index: 1000;
+  display: none;
+  min-width: 120px;
+  border: 1px solid #e0e0e0;
+}
+
+.password-context-menu.active {
+  display: block;
+}
+
+.menu-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 14px;
+  color: #333;
+}
+
+.menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Pinned items */
+.password-item.pinned {
+  border-left: 3px solid #4CAF50;
+  background-color: #f9f9f9;
+}
+
+.pinned-icon {
+  color: #4CAF50;
+  margin-left: 8px;
+  font-size: 12px;
+}
+
+
+/* length modal popup */
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 380px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/* Modal Background */
+.gear-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Box */
+.gear-modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 380px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+.gear-modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.default-btn { background: #888; color: #fff; }
+.cancel-btn { background: #ff4d4d; color: #fff; }
+.save-btn   { background: #4CAF50; color: #fff; }
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 14px;
+  align-items: center;
+}
+
+.setting-item label {
+  font-weight: 600;
+}
+
+.setting-item select {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.setting-item input[type="range"] {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.range-value {
+  width: 20px;
+  text-align: right;
+  font-weight: 600;
+}
+
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+
+/* Modal Footer for buttons */
+.gear-modal-actions .btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+
+
 @media (max-width: 435px) {
-  body{
+  body {
     width: auto;
     font-size: 16px;
   }
@@ -281,7 +870,6 @@ input[type="number"]::-webkit-inner-spin-button {
     /* min-height: 380px;  */
     max-width: 360px;
     /* margin: 0 auto; */
-    
   }
 
   /* .generate-box {
@@ -292,21 +880,17 @@ input[type="number"]::-webkit-inner-spin-button {
     margin-bottom: 1rem;
   }
    */
-  .card p {
-    
+  .card #password {
     font-size: 0.9rem;
     line-height: 25px;
-    
   }
 
   .alert {
     min-width: 300px;
-    
   }
 
   .card #generate {
     margin: 2rem 0;
-    
   }
 
   .boxcircle {
@@ -319,7 +903,7 @@ input[type="number"]::-webkit-inner-spin-button {
     width: 320px;
   }
 
-  h1{
+  h1 {
     font-size: 1.5rem;
     text-align: center;
   }
@@ -329,12 +913,8 @@ input[type="number"]::-webkit-inner-spin-button {
     border: 1px solid red;
   } */
 
-  .boxLength label{
+  .boxLength label {
     font-size: 14px;
     text-align: left;
   }
 }
-
-
-
-
