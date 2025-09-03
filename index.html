@@ -29,54 +29,191 @@
     <!-- container hoilders -->
     <div class="container">
       <div class="head">
-        <h1 class="heading">Random Password Generator</h1>
-        <p class="text">Generate secure password quickly</p>
+        <div class="logo">
+          <h1 class="heading">Passwizard</h1>
+          <p class="text">No hocus pocus, just strong passwords.</p>
+        </div>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+          <div class="dropdown-menu">
+            <div class="dropdown-item" data-submenu="themes">Themes</div>
+            <div class="dropdown-item">Settings</div>
+            <div class="dropdown-item">About</div>
+          </div>
       </div>
+      <hr>
       <div class="card">
         <div class="generate-box">
           <p id="password"></p>
           <button id="copy"><i class="fa-solid fa-copy"></i></button>
         </div>
 
+        <div class="strength-meter">
+          <div id="strengthBar"></div>
+        </div>
+        <p id="strengthText"><p>
+        
+        <div class="save-button-container">
+          <button class="save-button"><i class="fa-solid fa-floppy-disk"></i>Save password</button>
+        </div>
+        
+
         <div class="boxCon">
           <div class="boxLength">
-            <label class="boxcircle" for="length">Password Length-</label>
-            <input type="number" id="length" min="1" value="12" max="24"/>
-            <!-- <span class="check"></span> -->
+            <div class="left">
+              <label class="boxcircle lengthMove" for="length">Password Length-</label>
+            <!-- <input type="number" id="length" min="1" value="12" max="24"/> -->
+             <select id="length" name="numbers">
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12" selected>12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+             </select>
+            </div>
+            
+            <span><i class="fa-solid fa-gear"></i></span>
+            <!-- Gear Settings Modal -->
+            <div id="gearModal" class="gear-modal">
+              <div class="gear-modal-content">
+                <h2>Password Settings ⚙️</h2>
+
+                <div class="setting-item">
+                  <label>Default Length:</label>
+                  <span id="defaultLength">12</span>
+                </div>
+
+                <div class="setting-item">
+                  <label>Total Selected:</label>
+                  <span id="totalValue">0</span>
+                </div>
+
+                <div class="setting-item">
+                  <label for="uppercaseSelect">Uppercase</label>
+                  <input type="range" id="uppercaseSelect" name="volume" min="0" max="6">
+                  <span id="uppercaseValue">0</span>
+                </div>
+
+                <div class="setting-item">
+                  <label for="lowercaseSelect">Lowercase</label>
+                  <input type="range" id="lowercaseSelect" name="volume" min="0" max="6">
+                  <span id="lowercaseValue">0</span>
+                </div>
+
+                <div class="setting-item">
+                  <label for="numberSelect">Numbers</label>
+                  <input type="range" id="numberSelect" name="volume" min="0" max="6">
+                  <span id="numberValue">0</span>
+                </div>
+
+                <div class="setting-item">
+                  <label for="symbolSelect">Symbols</label>
+                  <input type="range" id="symbolSelect" name="volume" min="0" max="6">
+                  <span id="symbolValue">0</span>
+                </div>
+
+                <div class="gear-modal-actions">
+                  <button id="defaultBtn" class="btn default-btn">Default</button>
+                  <button id="cancelGearBtn" class="btn cancel-btn">Cancel</button>
+                  <button id="saveGearBtn" class="btn save-btn">Save</button>
+                </div>
+              </div>
+            </div>
+
           </div>
 
+          <!-- ICON inside label -->
           <div class="boxitem">
-            <label class="boxcircle" for="uppercase">Include Uppercase</label>
+            <label class="boxcircle" for="uppercase">
+              Include Uppercase 
+            </label>
+            <span class="customize-btn" data-type="uppercase">⚙️</span>
             <input type="checkbox" id="uppercase" />
             <span class="check"></span>
           </div>
 
           <div class="boxitem">
-            <label class="boxcircle" for="lowercase">Include Lowercase </label>
+            <label class="boxcircle" for="lowercase">
+              Include Lowercase 
+            </label>
+            <span class="customize-btn" data-type="lowercase">⚙️</span>
             <input type="checkbox" id="lowercase" />
             <span class="check"></span>
           </div>
 
           <div class="boxitem">
-            <label class="boxcircle" for="numbers">Include Numbers</label>
+            <label class="boxcircle" for="numbers">
+              Include Numbers 
+            </label>
+            <span class="customize-btn" data-type="numbers">⚙️</span>
             <input type="checkbox" id="numbers" />
             <span class="check"></span>
           </div>
 
           <div class="boxitem">
-            <label class="boxcircle" for="symbols">Include Symbols</label>
+            <label class="boxcircle" for="symbols">
+              Include Symbols 
+            </label>
+            <span class="customize-btn" data-type="symbols">⚙️</span>
             <input type="checkbox" id="symbols" />
             <span class="check"></span>
           </div>
+
+          <!-- 🔹 MODAL POPUP -->
+          <div id="customizeModal" class="modal">
+            <div class="modal-content">
+              <h3 id="modalTitle"></h3>
+              <div id="charGrid" class="char-grid"></div>
+              <div class="modal-actions">
+                <button id="selectAllBtn">Select All</button>
+                <div class="right-btns">
+                  <button id="cancelBtn">Cancel</button>
+                  <button id="saveBtn">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <button id="generate">
           <i class="fa-solid fa-bolt"></i>Generate Password
         </button>
       </div>
+
+
+      <div class="saved-passwords">
+        <h2>Saved Passwords</h2>
+        <button class="back-button"><i class="fa-solid fa-arrow-left"></i>Back to Generator</button>
+        <div class="save-password-list" id="savedPasswordsList">
+          <!-- Saved passwords will be listed here -->
+        </div>
+        
+      </div>
+
+     
+      <div id="passwordMenu" class="password-context-menu">
+        <div class="menu-item" data-action="edit">Edit</div>
+        <div class="menu-item" data-action="delete">Delete</div>
+        <div class="menu-item" data-action="pin">Pin</div>
+      </div>
+
     </div>
 
     <!-- script file -->
-    <script src="your-script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
